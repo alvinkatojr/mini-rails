@@ -1,4 +1,6 @@
 require 'test_helper'
+require 'muffin_blog/app/models/application_record'
+require 'muffin_blog/app/models/post'
 
 class ActiveRecordTest < Minitest::Test
   def test_initialize
