@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'active_record'
 require 'muffin_blog/app/models/application_record'
 require 'muffin_blog/app/models/post'
 
