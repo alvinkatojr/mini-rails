@@ -18,6 +18,10 @@ module ActiveRecord
           end
         end
       end
+
+      def columns(table_name)
+        @db.table_info(table_name).map { |info| info["name"].to_sym }
+      end
     end
   end
 end
