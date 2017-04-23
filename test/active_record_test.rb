@@ -16,4 +16,8 @@ class ActiveRecordTest < Minitest::Test
     assert_equal 1, post.id
     assert_equal "My first post", post.title
   end
+
+  def test_execute_sql
+    Post.connection.execute("SELECT * FROM posts")
+  end
 end
