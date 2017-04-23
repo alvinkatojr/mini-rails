@@ -14,5 +14,8 @@ module ActiveRecord
     def title
       @attributes[:title]
     end
+
+    def self.find(id)
+    end
   end
 end
