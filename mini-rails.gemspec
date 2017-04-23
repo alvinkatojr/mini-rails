@@ -1,17 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'mini/rails/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "mini-rails"
-  spec.version       = Mini::Rails::VERSION
+  spec.version       = "0.0.1"
   spec.authors       = ["alvinkatojr"]
   spec.email         = ["alvinkatojr@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{A tiny, mini version of rail}
+  spec.description   = %q{Find out what's under the hood by building your own rails framework}
+  spec.homepage      = ""
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
