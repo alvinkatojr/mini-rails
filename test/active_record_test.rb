@@ -9,4 +9,11 @@ class ActiveRecordTest < Minitest::Test
      assert_equal 1, post.id
      assert_equal 'My first post', post.title
   end
+
+  def test_find
+    post = Post.find(1)
+    assert_kind_of Post, post
+    assert_equal 1, post.id
+    assert_equal "My first post", post.title
+  end
 end
