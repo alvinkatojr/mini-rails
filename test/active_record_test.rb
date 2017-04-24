@@ -4,6 +4,12 @@ require 'muffin_blog/app/models/application_record'
 require 'muffin_blog/app/models/post'
 
 class ActiveRecordTest < Minitest::Test
+  def setup
+    Post.establish_connection(
+      database: "#{__dir__}/muffin_blog/db/development.sqlite3"
+    )
+  end
+
   def test_initialize
      post = Post.new(id: 1, title: 'My first post')
      assert_equal 1, post.id
