@@ -2,9 +2,6 @@ require 'active_record/connection_adapter'
 
 module ActiveRecord
   class Base
-    def self.abstract_class=(value)
-    end
-
     def initialize(attributes = {})
       @attributes = attributes
     end
@@ -15,6 +12,9 @@ module ActiveRecord
 
     def title
       @attributes[:title]
+    end
+
+    def self.abstract_class=(value)
     end
 
     def self.find(id)
