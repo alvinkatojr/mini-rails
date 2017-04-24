@@ -24,6 +24,10 @@ class ActiveRecordTest < Minitest::Test
   end
 
   def test_execute_sql
-    Post.connection.execute("SELECT * FROM posts")
+    rows = Post.connection.execute("SELECT * FROM posts")
+    assert_kind_of Array, rows
+    row = row.first
+    assert_kind_of Hash, row
+    assert_equal [:id, :title, :body, :created_at, :updated_at, row.keys]
   end
 end
