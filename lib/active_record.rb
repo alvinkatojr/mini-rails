@@ -18,6 +18,8 @@ module ActiveRecord
     end
 
     def self.find(id)
+      attributes = connection.execute("SELECT * from posts WHERE id = #{id.to_i}").first
+      new(attributes)
     end
 
     def self.establish_connection(options)
