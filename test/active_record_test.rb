@@ -20,7 +20,7 @@ class ActiveRecordTest < Minitest::Test
     post = Post.find(1)
     assert_kind_of Post, post
     assert_equal 1, post.id
-    assert_equal "My first post", post.title
+    assert_equal "Star Wars", post.title
   end
 
   def test_execute_sql
