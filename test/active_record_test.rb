@@ -24,7 +24,7 @@ class ActiveRecordTest < Minitest::Test
   end
 
   def test_all
-    post = Post.all
+    post = Post.all.first
     assert_kind_of Post, post
     assert_equal 1, post.id
     assert_equal 'Star Wars', post.title
