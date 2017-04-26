@@ -22,6 +22,12 @@ module ActiveRecord
       new(attributes)
     end
 
+    def self.all
+      connection.execute("SELECT * from posts").map do |attributes|
+        new(attributes)
+      end
+    end
+
     def self.establish_connection(options)
       @@connection = ConnectionAdapter::SqliteAdapter.new(options[:database])
     end
