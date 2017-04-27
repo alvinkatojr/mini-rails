@@ -6,6 +6,16 @@ module ActiveRecord
       @attributes = attributes
     end
 
+    def method_missing(name, *args)
+      columns = self.class.connection.columns("posts")
+
+      if columns.include?(name)
+        @attributes[name]
+      else
+        super
+      end
+    end
+
     def self.abstract_class=(value)
     end
 
