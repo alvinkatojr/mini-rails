@@ -6,14 +6,6 @@ module ActiveRecord
       @attributes = attributes
     end
 
-    def id
-      @attributes[:id]
-    end
-
-    def title
-      @attributes[:title]
-    end
-
     def self.abstract_class=(value)
     end
 
