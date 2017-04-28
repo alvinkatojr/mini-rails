@@ -34,6 +34,12 @@ module ActiveRecord
       end
     end
 
+    def self.find_by_sql(sql)
+      connection.execute(sql).map do |attributes|
+        new(attributes)
+      end
+    end
+
     def self.establish_connection(options)
       @@connection = ConnectionAdapter::SqliteAdapter.new(options[:database])
     end
