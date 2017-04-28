@@ -24,14 +24,11 @@ module ActiveRecord
     end
 
     def self.find(id)
-      attributes = connection.execute("SELECT * from #{table_name} WHERE id = #{id.to_i}").first
-      new(attributes)
+      find_by_sql("SELECT * from #{table_name} WHERE id = #{id.to_i}").first
     end
 
     def self.all
-      connection.execute("SELECT * from #{table_name}").map do |attributes|
-        new(attributes)
-      end
+      find_by_sql("SELECT * from #{table_name}")
     end
 
     def self.find_by_sql(sql)
