@@ -16,6 +16,10 @@ module ActiveRecord
       end
     end
 
+    def self.table_name
+      self.name.downcase + "s"
+    end
+
     def self.abstract_class=(value)
     end
 
