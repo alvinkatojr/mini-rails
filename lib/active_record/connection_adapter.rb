@@ -7,6 +7,14 @@ module ActiveRecord
       end
 
       # Executes a SQL query and returns result as an array of hashes
+      # Eg:
+      #
+      # > adapter.execute "SELECT * FROM users"
+      # => [
+      #   { id: 1, name: "Marc" },
+      #   { id: 2, name: "Bob" }
+      # ]
+
       def execute(sql)
         @db.execute(sql).each do |row|
           row.keys.each do |key|
