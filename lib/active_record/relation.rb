@@ -8,5 +8,9 @@ module ActiveRecord
       where_values += [condition]
       self
     end
+
+    def where(condition)
+      clone.where!(condition)
+    end
   end
 end
