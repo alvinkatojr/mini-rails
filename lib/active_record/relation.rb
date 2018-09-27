@@ -27,5 +27,13 @@ module ActiveRecord
     def records
       @records ||= @klass.find_by_sql(to_sql)
     end
+
+    def first
+      records.first
+    end
+
+    def each(&block)
+      records.each(&block)
+    end
   end
 end
