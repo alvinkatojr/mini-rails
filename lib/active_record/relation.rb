@@ -23,5 +23,9 @@ module ActiveRecord
 
       sql
     end
+
+    def records
+      @records ||= @klass.find_by_sql(to_sql)
+    end
   end
 end
