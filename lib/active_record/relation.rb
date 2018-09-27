@@ -15,7 +15,7 @@ module ActiveRecord
     end
 
     def to_sql
-      sql = "SELECT * FROM #{klass.table_name}"
+      sql = "SELECT * FROM #{@klass.table_name}"
 
       if @where_values.any?
         sql += " WHERE " + @where_values.join(" AND ")
