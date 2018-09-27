@@ -29,6 +29,10 @@ module ActiveRecord
       Relation.new(self)
     end
 
+    def self.where(*args)
+      all.where(*args)
+    end
+
     def self.find_by_sql(sql)
       connection.execute(sql).map do |attributes|
         new(attributes)
