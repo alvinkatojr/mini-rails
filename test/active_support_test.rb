@@ -11,6 +11,6 @@ class ActiveSupportTest < Minitest::Test
     assert_equal "#{__dir__}/muffin_blog/app/controllers/application_controller.rb", file
 
     file = ActiveSupport::Dependencies.search_for_file("unknown")
-    assert_equal nil, file
+    assert_nil file
   end
 end
