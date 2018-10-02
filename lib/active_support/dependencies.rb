@@ -15,4 +15,15 @@ module ActiveSupport
       nil
     end
   end
-end 
+end
+
+class Module
+  def const_missing(name)
+    if file = ActiveSupport::Dependencies.search_for_filename(name.to_s.underscore)
+      require file.sub(/\.rb$/, '')
+      const_get name
+    else
+      raise NameError, "Uninitialized constant #{name}"
+    end
+  end
+end
