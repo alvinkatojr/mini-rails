@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'active_record'
 require 'active_support'
 
 class ActiveSupportTest < Minitest::Test
@@ -19,5 +20,9 @@ class ActiveSupportTest < Minitest::Test
     assert "post", :Post.to_s.underscore
     # :ApplicationController => "application_controller"
     assert "ApplicationController", :ApplicationController.to_s.underscore
+  end
+
+  def test_load_missing_constants
+    Post
   end
 end
