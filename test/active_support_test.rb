@@ -13,4 +13,11 @@ class ActiveSupportTest < Minitest::Test
     file = ActiveSupport::Dependencies.search_for_file("unknown")
     assert_nil file
   end
+
+  def test_case_name
+    # :Post => "post"
+    assert "post", :Post.to_s.underscore
+    # :ApplicationController => "application_controller"
+    assert "ApplicationController", :ApplicationController.to_s.underscore
+  end
 end
