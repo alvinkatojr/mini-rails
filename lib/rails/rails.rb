@@ -10,6 +10,6 @@ module Rails
   end
 
   def self.application
-    Application.instance!
+    Application.instance
   end
 end
