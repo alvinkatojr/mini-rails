@@ -5,13 +5,13 @@ class ActionControllerTest < Minitest::Test
     def index
       response << "index"
     end
+  end
 
-    def test_calls_index
-      controller = TestController.new
-      controller.response = []
-      controller.process :index
+  def test_calls_index
+    controller = TestController.new
+    controller.response = []
+    controller.process :index
 
-      assert_equal ["index"], controller.response
-    end
+    assert_equal ["index"], controller.response
   end
 end
