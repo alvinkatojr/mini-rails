@@ -32,5 +32,15 @@ module ActionController
         @before_action ||= []
       end
     end
+    
+    def process(action)
+      self.class.before_actions.each do |callback|
+        if callback.match?(action)
+          callback.call(self)
+        end
+      end
+      
+      super
+    end
   end
 end
