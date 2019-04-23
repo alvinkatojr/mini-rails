@@ -1,5 +1,5 @@
  module ActionController
-  class Base
+  class Base < Metal
     include Callbacks
   end
 end
