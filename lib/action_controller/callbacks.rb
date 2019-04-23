@@ -7,7 +7,7 @@ module ActionController
       end
     end
     
-    def self.include(base)
+    def self.included(base)
       base.extend ClassMethods
     end
 
