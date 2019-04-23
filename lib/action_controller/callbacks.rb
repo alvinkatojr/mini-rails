@@ -13,6 +13,10 @@ module ActionController
           true
         end
       end
+
+      def call(controller)
+        controller.send @method
+      end
     end
     
     def self.included(base)
