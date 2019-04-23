@@ -5,6 +5,14 @@ module ActionController
         @method = method
         @options = options
       end
+
+      def match?(action)
+        if @options[:only]
+          @options[:only].include? action.to_sym
+        else
+          true
+        end
+      end
     end
     
     def self.included(base)
