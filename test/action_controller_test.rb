@@ -9,7 +9,7 @@ class ActionControllerTest < Minitest::Test
     def test_calls_index
       controller = TestController.new
       controller.response = []
-      controller.index
+      controller.process :index
 
       assert_equal ["index"], controller.response
     end
