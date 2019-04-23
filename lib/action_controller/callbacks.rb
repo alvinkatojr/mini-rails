@@ -1,5 +1,12 @@
 module ActionController
   module Callbacks
+    class Callback
+      def initialize(method, options)
+        @method = method
+        @options = options
+      end
+    end
+    
     def self.include(base)
       base.extend ClassMethods
     end
