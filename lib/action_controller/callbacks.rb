@@ -6,6 +6,7 @@ module ActionController
         @options = options
       end
 
+      # Returns true if it should run on a specific action
       def match?(action)
         if @options[:only]
           @options[:only].include? action.to_sym
@@ -31,16 +32,30 @@ module ActionController
       def before_actions
         @before_action ||= []
       end
+
+      def after_action(method, options={})
+        after_actions << Callback.new(method, options)
+      end
+
+      def after_actions
+        @after_action ||=[]
+      end
     end
-    
+
     def process(action)
       self.class.before_actions.each do |callback|
         if callback.match?(action)
           callback.call(self)
         end
       end
-      
+
       super
-    end
+
+      self.class.after_actions.each do |callback|
+        if callback.match?(action)
+          callback.call(self)
+        end
+      end
+     end
   end
 end
