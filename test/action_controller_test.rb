@@ -48,8 +48,15 @@ class ActionControllerTest < Minitest::Test
     assert_equal ["callback", "show", "callback_after"], controller.response
   end
 
+  class Request
+    def params
+      { 'id' => 1 }
+    end
+  end
+
   def test_real_controller
     controller = PostsController.new
+    controller.request = Request.new
     controller.process :show
   end
 end
