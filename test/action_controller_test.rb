@@ -50,8 +50,6 @@ class ActionControllerTest < Minitest::Test
     controller.process :show
 
     assert_equal ["callback", "show", "callback_after"], controller.response
-    assert_equal "/", controller.response.location
-    assert_equal ["You are being redirected"], controller.response.body
   end
 
   class Request
@@ -76,6 +74,8 @@ class ActionControllerTest < Minitest::Test
     controller.process :redirect
 
     assert_equal 302, controller.response.status
+    assert_equal "/", controller.response.location
+    assert_equal ["You are being redirected"], controller.response.body
   end
 
 end
